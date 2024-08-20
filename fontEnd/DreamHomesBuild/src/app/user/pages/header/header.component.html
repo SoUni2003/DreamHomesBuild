@@ -1,9 +1,8 @@
-<div class="mainheader w-full bg-transparent h-[806px]">
+<div class="mainheader w-full h-[806px] bg-cover bg-center">
     <div id="top-bar" class="">
       <div class="flex justify-end gap-10 items-center pt-4">
         <ul class="flex items-center space-x-6 text-white justify-center mr-5">
         <p class="text-white text-lg font-bold mr-12 leading-10">Hotline: 1900 277 287</p>
-
           <li class="flex items-center">
             <img src="https://arteco.vn/wp-content/plugins/translatepress-multilingual/assets/images/flags/fr_FR.png" width="25" height="20" alt="French" title="Français">
             <span class="ml-1 text-lg">FR</span>
@@ -16,10 +15,10 @@
       </div>
     </div>
 
-    <div id="masthead" class="header-main ">
+    <div id="masthead" class="header-main fixed w-full z-10" [ngClass]="{ 'top-0': isScrolled }">
       <div role="navigation">
-        <div class=" py-4">
-          <ul class="flex gap-6 border-y border-white w-full p-8 font-bold justify-between items-center text-white text-xl fixed cursor-pointer ">
+        <div class="">
+          <ul class="flex gap-6 border-y border-white w-full p-8 font-bold justify-between items-center text-white text-xl cursor-pointer">
             <img src="https://arteco.vn/wp-content/uploads/2022/08/arteco-logo.svg" alt="Arteco Logo" class="mr-36">
             <li><a class="hover:text-gray-300 ">Trang chủ</a></li>
             <li><a class="hover:text-gray-300">Về chúng tôi</a></li>
@@ -32,7 +31,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </a>
-              <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-gray-100 text-gray-800 shadow-lg">
+              <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-gray-100 text-gray-800 shadow-lg">
                 <a class="block px-4 py-2 hover:bg-gray-200">Tin nội bộ</a>
                 <a class="block px-4 py-2 hover:bg-gray-200">Tin ngành</a>
             
@@ -49,6 +48,47 @@
       </div>
     </div>
 </div>
-<div class="h-[806px] middle">
 
+<div class="h-[806px] middle bg-cover bg-center">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 justify-center items-center lg:mx-32 h-full p-10 lg:p-0 overflow-hidden">
+    <div class="">
+      <div class="who text-main font-normal text-lg tracking-wider uppercase">Artéco chúng tôi là ai?</div>
+      <div class="description text-white mt-3 text-3xl font-normal tracking-wider leading-10 text-justify">
+        Artéco chuyên thiết kế và thi công trọn gói các công trình nhà phố cao tầng, biệt thự. Đội ngũ Kiến trúc sư, Kỹ sư có chuyên môn cao sẽ đưa ra các giải pháp tổng thể, cá nhân hoá cho từng khách hàng.
+      </div>
+      <button class="mt-9 border border-solid border-main px-10 py-2 tracking-widest text-lg uppercase text-main hover:bg-white duration-300 transition-all ease-in-out">
+        Tìm hiểu thêm
+      </button>
+    </div>
+    <div class="">
+      <img class="w-full h-full sm:h-[80%] sm:p-4 object-cover" src="https://arteco.vn/wp-content/uploads/2022/08/ve-arteco-1.jpg" alt="">
+    </div>
+  </div>  
 </div>
+
+<div class="architecture h-[1000px] bg-cover bg-center">
+  <div class="mx-32 h-full py-20">
+    <div class="uppercase text-main tracking-wider font-medium text-lg mb-10">Lĩnh vực hoạt động</div>
+    <div class="grid grid-cols-12 justify-center items-center gap-8">
+      <div class="col-span-5 text-main mt-3 text-3xl font-normal tracking-wider leading-10 text-justify lg:mr-36">
+        <p>Thiết kế kiến trúc và nội <br>thất công trình dân <br> dụng</p>
+        <hr class="mt-10">
+        <p class="mt-10">Thi công  <br> xây dựng công trình</p>
+      </div>
+      <div class="col-span-7">
+        <div class="grid grid-cols-2 gap-8 h-full">
+          <div class="relative overflow-hidden group">
+            <img class="object-cover h-[520px] w-full transition-transform duration-300 ease-in-out group-hover:scale-105 filter brightness-50 group-hover:brightness-100" src="https://arteco.vn/wp-content/uploads/2022/08/linh-vuc-arteco-2.jpg" alt="">
+          </div>
+          <div class="relative overflow-hidden group">
+            <img class="object-cover h-[520px] w-full transition-transform duration-300 ease-in-out group-hover:scale-105 filter brightness-50 group-hover:brightness-100" src="https://arteco.vn/wp-content/uploads/2022/08/linh-vuc-arteco-1.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
