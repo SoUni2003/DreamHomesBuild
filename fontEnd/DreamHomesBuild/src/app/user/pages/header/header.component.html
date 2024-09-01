@@ -1,4 +1,5 @@
-<div class="mainheader w-full h-[646px] bg-cover bg-center">
+<div class="mainheader">
+  <!-- Top Bar -->
   <div id="top-bar">
     <div class="flex justify-end gap-10 items-center pt-4">
       <ul class="flex items-center space-x-6 text-white justify-center mr-5">
@@ -15,12 +16,23 @@
     </div>
   </div>
 
+  <!-- Main Header -->
   <div id="masthead" class="header-main fixed w-full z-10" [ngClass]="{ 'top-0': isScrolled }">
     <div role="navigation">
-      <ul class="flex gap-6 border-y border-white w-full p-6 font-bold justify-between items-center text-white text-sm cursor-pointer">
+      <div class="md:hidden flex justify-between items-center p-6">
+        <img src="https://arteco.vn/wp-content/uploads/2022/08/arteco-logo.svg" alt="Arteco Logo" class="h-10">
+        <button class="text-white focus:outline-none" (click)="toggleMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-6 border-y border-white w-full p-6 font-bold justify-between items-center text-white text-sm cursor-pointer">
         <img src="https://arteco.vn/wp-content/uploads/2022/08/arteco-logo.svg" alt="Arteco Logo" class="mr-36">
-        <li><a class="hover:text-gray-450 ">Trang chủ</a></li>
-        <li><a class="hover:text-gray-450">Về chúng tôi</a></li>
+        <li routerLink="/trangchu" routerLinkActive><a class="hover:text-gray-450 ">Trang chủ</a></li>
+        <li routerLink="/vechungtoi" routerLinkActive><a class="hover:text-gray-450">Về chúng tôi</a></li>
         <li><a class="hover:text-gray-450">Lĩnh vực</a></li>
         <li><a class="hover:text-gray-450">Dự án</a></li>
         <li class="relative dropdown hover:cursor-pointer">
@@ -42,360 +54,19 @@
           <a class="bg-transparent border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black">Liên hệ</a>
         </li>
       </ul>
-    </div>
-  </div>
-</div>
 
-<div class="middle">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 justify-center items-center mx-4 lg:mx-32 h-full py-16">
-    <div class="">
-      <div class="who text-main font-normal text-lg tracking-wider uppercase">Artéco chúng tôi là ai?</div>
-      <div class="description text-white mt-5 text-xl lg:text-2xl font-normal tracking-wider leading-10 text-justify">
-        Artéco chuyên thiết kế và thi công trọn gói các công trình nhà phố cao tầng, biệt thự. Đội ngũ Kiến trúc sư, Kỹ sư có chuyên môn cao sẽ đưa ra các giải pháp tổng thể, cá nhân hoá cho từng khách hàng.
-      </div>
-      <button class="mt-9 border border-solid border-gray-100 border-opacity-80 px-[51px] py-[9px] tracking-widest uppercase text-main hover:bg-white duration-450 transition-all ease-in-out">
-        <p class="text-sm">Tìm hiểu thêm</p>
-      </button>
-    </div>
-    <div>
-      <img class="w-full h-full object-cover" src="https://arteco.vn/wp-content/uploads/2022/08/ve-arteco-1.jpg" alt="">
-    </div>
-  </div>  
-</div>
-
-<div class="architecture">
-  <div class="lg:mx-32 mx-4 h-full py-20">
-    <div class="uppercase text-main tracking-wider font-medium text-sm mb-10">Lĩnh vực hoạt động</div>
-    <div class="grid grid-cols-1 lg:grid-cols-9 justify-center items-center gap-2">
-      <div class="col-span-4 text-main mt-3 text-2xl font-medium tracking-wider text-justify lg:mr-36 mx-6 lg:mx-0">
-        <div class="grid grid-cols-5 gap-4">
-          <div class="col-span-4">
-            <p>Thiết kế kiến trúc và nội thất công trình dân dụng</p>
-          </div>
-          <div class="col-span-1">
-            <mat-icon class="text-2xl">icon-angle-down</mat-icon>
-          </div>
-        </div>
-        <div class="grid grid-cols-5 gap-4 my-10 mt-10 border-t">
-          <div class="col-span-4">
-            <p>Thi công <br> xây dựng công trình</p>
-          </div>
-          <div class="col-span-1">
-            <mat-icon class="text-2xl">keyboard_arrow_down</mat-icon>
-          </div>
-        </div>
-      </div>
-      <div class="col-span-5">
-        <div class="grid grid-cols-2 gap-8 ">
-          <div class="overflow-hidden group">
-            <img class="object-cover lg:h-[415px] w-full transition-transform duration-450 ease-in-out group-hover:scale-105 filter brightness-50 group-hover:brightness-100" src="https://arteco.vn/wp-content/uploads/2022/08/linh-vuc-arteco-2.jpg" alt="">
-          </div>
-          <div class="overflow-hidden group">
-            <img class="object-cover lg:h-[415px] w-full transition-transform duration-450 ease-in-out group-hover:scale-105 filter brightness-50 group-hover:brightness-100" src="https://arteco.vn/wp-content/uploads/2022/08/linh-vuc-arteco-1.jpg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-center py-10">
-      <button class="px-8 py-3 uppercase bg-red-700 text-sm text-white font-medium hover:bg-red-800 hover:text-main border border-red-700 transition duration-450">
-        Tìm Hiểu Thêm
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="grid grid-cols-1 lg:grid-cols-12 h-screen">
-  <!-- Sidebar -->
-  <div class="col-span-4 bg-[#195e5e] text-white flex flex-col">
-    <div class="font-semibold tracking-wider flex-grow">
-      <ul class="uppercase">
-        <li class="border-b border-r border-[#4f4f4f] border-opacity-80 flex items-center h-20 lg:h-28">
-          <div class="ml-6 lg:ml-16">
-            <button class="text-2xl uppercase block">Dịch vụ</button>
-          </div>
-        </li>
-        <div class="grid lg:grid-cols-1 grid-cols-2">
-          <li (click)="selectContent('tab1')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab1'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-            <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab1'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-1.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block">Xây dựng nhà ở</button>
-            </div>
-          </li>
-  
-          <li (click)="selectContent('tab2')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab2'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-            <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab2'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-2.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block">Thiết kế công trình</button>
-            </div>
-          </li>
-  
-  
-          <li (click)="selectContent('tab3')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab3'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-            <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab3'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-3.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block text-left">Xây dựng công nghiệp</button>
-            </div>
-          </li>
-  
-          <li (click)="selectContent('tab4')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab4'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-            <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab4'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-4.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block">Nội thất</button>
-            </div>
-          </li>
-  
-          <li (click)="selectContent('tab5')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab5'}" class="lg:border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-            <div class="lg:ml-16 ml-4 flex items-center h-[60px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab5'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-5.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block">Sửa chữa cải tạo</button>
-            </div>
-          </li>
-  
-          <li (click)="selectContent('tab6')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab6'}" class="cursor-pointer border-[#4f4f4f] border-opacity-80">
-            <div class="lg:ml-16 ml-4 flex items-center h-[60px] lg:h-24 lg:gap-10 gap-4">
-              <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab6'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-6.png" height="50" width="35" alt="">
-              <button class="lg:text-xl text-sm uppercase block">Dịch vụ khác</button>
-            </div>
-          </li>
-        </div>
-       
-      </ul>
-    </div>
-  </div>
-
-  <!-- Content -->
-  <div class="col-span-8 relative">
-    <div class="grid grid-rows-1 h-full">
-      <div *ngIf="selectedContent === 'tab1'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 1</h2>
-        </div>
-      </div>
-
-      <div *ngIf="selectedContent === 'tab2'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 2</h2>
-        </div>
-      </div>
-
-      <div *ngIf="selectedContent === 'tab3'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 3</h2>
-        </div>
-      </div>
-
-      <div *ngIf="selectedContent === 'tab4'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 4</h2>
-        </div>
-      </div>
-
-      <div *ngIf="selectedContent === 'tab5'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 5</h2>
-        </div>
-      </div>
-
-      <div *ngIf="selectedContent === 'tab6'" class="w-full h-full relative">
-        <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-        <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
-          <h2>Content for Tab 6</h2>
+      <!-- Mobile Menu -->
+      <div class="md:hidden" [ngClass]="{ 'hidden': !menuOpen }">
+        <div class="fixed inset-0 z-20" (click)="toggleMenu()"></div>
+        <div class=" text-black text-xl space-y-1 py-3 z-30 relative animate-slide-down h-[1000px] hover:cursor-pointer">
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Trang chủ</a>
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Về chúng tôi</a>
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Lĩnh vực</a>
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Dự án</a>
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Tin tức</a>
+          <a class="block px-4 py-2 font-bold hover:bg-gray-700">Liên hệ</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="min-h-[950px] bg-cover bg-center bg-[#182a53] text-main">
-  <div class="lg:mx-32 mx-4 h-full py-20">
-    <div class="uppercase text-main tracking-wider font-normal text-lg mb-10">Điểm nổi bật của Artéco</div>
-    <div>
-      <p class="font-normal text-[21px] lg:text-[23px] tracking-wider text-white text-justify lg:w-[75%]">
-        Bằng trách nhiệm, tâm huyết cùng với sự am hiểu và sáng tạo, đội ngũ <strong class="text-[#0052c9]">Artéco</strong> đang thực hiện chức năng <strong class="text-[#ba3434]"> tiên phong</strong> trong lĩnh vực xây dựng. Chúng tôi tự tin đem đến không gian sống mang tiêu chuẩn Châu Âu, tiện nghi và giàu thẩm mỹ trên từng chi tiết.
-      </p>
-    </div>
-    <div class="grid lg:grid-cols-12 grid-cols-1 font-bold text-2xl tracking-wider mt-14 items-center">
-      <div class="col-span-6">
-        <div class="flex flex-col space-y-8">
-          <div class="flex flex-col">
-            <div class="flex items-center">
-              <div class="icon">
-                <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/doi-tac-hang-dau-icon.png" alt="">
-              </div>
-              <div [ngClass]="{'text-white': isContentVisible === 1}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer text-[21px] lg:text-[24.5px]" (click)="toggleContent(1)">
-                Đối tác thi công số 1 <br> của các công ty thiết kế <br> hàng đầu Việt Nam
-              </div>
-            </div>
-            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 1, 'max-h-96': isContentVisible === 1}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
-              Chúng tôi chuyên thi công trọn gói và phụ trách giám sát chất lượng các công trình nhà cao tầng, biệt thự, penthouse, nhà hàng, khách sạn,… cho khách hàng.
-            </div>
-          </div>
-        
-          <div class="flex items-center">
-            <div class="icon">
-              <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/ky-su-chuyen-mon-icon.png" alt="">
-            </div>
-            <div [ngClass]="{'text-white': isContentVisible === 2}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(2)">
-              Đội ngũ chuyên gia <br> giàu kinh nghiệm
-            </div>
-          </div>
-          <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 2, 'max-h-96': isContentVisible === 2}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
-            Chúng tôi có đội ngũ kỹ sư và chuyên gia giàu kinh nghiệm, luôn đảm bảo chất lượng và tiến độ cho mọi dự án.
-          </div>
-        
-          <div class="flex items-center">
-            <div class="icon">
-              <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/ceo-icon.png" alt="">
-            </div>
-            <div [ngClass]="{'text-white': isContentVisible === 3}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(3)">
-              Đội ngũ Kỹ sư <br> chuyên môn cao
-            </div>
-          </div>
-          <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 3, 'max-h-96': isContentVisible === 3}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
-            Các kỹ sư của chúng tôi có trình độ chuyên môn cao và luôn tuân thủ nghiêm ngặt các tiêu chuẩn chất lượng.
-          </div>
-        
-          <div class="flex items-center">
-            <div class="icon">
-              <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/truong-ton-thoi-gian-icon.png" alt="">
-            </div>
-            <div [ngClass]="{'text-white': isContentVisible === 4}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(4)">
-              Dịch vụ xây dựng <br> toàn diện và đồng bộ
-            </div>
-          </div>
-          <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 4, 'max-h-96': isContentVisible === 4}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
-            Chúng tôi cung cấp dịch vụ xây dựng toàn diện từ thiết kế đến thi công và quản lý chất lượng.
-          </div>
-        </div>        
-      </div>
-      <div class="col-span-6">
-        <img class="object-cover" src="https://arteco.vn/wp-content/uploads/2022/08/diem-noi-bat-arteco-12.jpg" alt="">
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="build_togrther">
-  <div class="grid grid-cols-1 lg:grid-cols-12 mx-6 lg:mx-[109px] mt-10 lg:gap-16">
-    <div class="col-span-5">
-      <img class="object-cover" src="https://kientruckienphong.vn/wp-content/uploads/2023/11/quote-2.png" alt="">
-      <div class="font-bold text-[20px] text- tracking-wider uppercase mt-6 leading-8 ">
-        <b style="color: #32675a;">Cùng nhau</b>  chúng ta tạo nên những <b style="color: #32675a;">công trình đặc biệt</b> và bền vững.
-      </div>
-      <div class="grid grid-cols-2 gap-12 mt-4 lg:mt-10">
-        <div class="border-b border-gray-200">
-          <p class="text-[32px] leading-[48px] text-[#32675a] font-bold uppercase">10</p>
-          <p class="mt-6 uppercase font-normal text-xl tracking-wider mb-8">TOP 10 ĐƠN VỊ THI CÔNG NỘI THẤT UY TÍN HÀNG ĐẦU VIỆT NAM </p> 
-        </div>
-        
-        <div class="border-b border-gray-200">
-          <p class="text-[32px] leading-[48px] text-[#32675a] font-bold uppercase">30/60</p>
-          <p class="mt-6 uppercase font-normal text-xl tracking-wider">CÁC CÔNG TRÌNH ĐÃ THỰC HIỆN TẠI 30/63 TỈNH THÀNH </p>   
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-12 mt-4 lg:mt-10">
-        <div class="border-b border-gray-200">
-          <p class="text-[32px] leading-[48px] text-[#32675a] font-bold uppercase">100</p>
-          <p class="mt-6 uppercase font-normal text-xl tracking-wider">ĐÃ THIẾT KẾ VÀ THI CÔNG NỘI THẤT TRÊN 100 CÔNG TRÌNH</p> 
-        </div>
-        
-        <div class="border-b border-gray-200">
-          <p class="text-[32px] leading-[48px] text-[#32675a] font-bold uppercase">50</p>
-          <p class="mt-6 uppercase font-normal text-xl tracking-wider mb-8">50 NHÂN SỰ THIẾT KẾ, SẢN XUẤT NỘI THẤT VÀ THI CÔNG</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-7">
-      <img loading="lazy"src="https://kientruckienphong.vn/wp-content/uploads/2023/10/2-188.jpg" class="oject-cover h-full w-full" alt="" srcset="https://kientruckienphong.vn/wp-content/uploads/2023/10/2-188.jpg 1513w, https://kientruckienphong.vn/wp-content/uploads/2023/10/2-188-225x300.jpg 225w, https://kientruckienphong.vn/wp-content/uploads/2023/10/2-188-768x1024.jpg 768w, https://kientruckienphong.vn/wp-content/uploads/2023/10/2-188-1152x1536.jpg 1152w">
-    </div>
-  </div>
-</div>
-
-<!-- <section class="py-[45px] px-[10px]">
-  <div class="grid grid-rows-1">
-      <div class="grid grid-col-2">
-          <div class="col-span-1 w-1/3 h-[585px] relative group"> 
-            <a href="#">
-              <img class="w-full h-full object-cover"src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg"alt>
-            </a>
-              <div
-                  class="absolute top-0 left-0 w-full h-full bg-black opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex justify-center items-center">
-                  <img class="w-[97.35px] "
-                      src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg"
-                      alt>
-                  <div
-                      class="absolute bottom-[29.200px] desc text-center">
-                      <h1
-                          class="uppercase font-semibold text-white text-2xl">Biet
-                          thu me linh</h1>
-                      <p
-                          class="text-[15px] font-semibold tracking-wide text-[#9199b0] mt-4 mb-1">Chu
-                          dau
-                          tu: NGUYEN PHUC VINH</p>
-                      <p
-                          class="text-[15px] font-semibold tracking-wide text-[#9199b0]">Phong
-                          cach: Tan co dien</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section> -->
-
-<div class="tintuc min-h-[824px]  bg-[#182a53] text-main">
-  <div class="mx-[124px] h-full pt-20">
-    <div class="uppercase text-main tracking-wider font-normal text-xs mb-10">Tin tức - Sự kiện</div>
-  </div>
-  
-  <div class="grid grid-cols-12 grid-rows-4 gap-4 mx-4 md:mx-8 lg:mx-32 lg:gap-8">
-
-    <div class="col-span-12 lg:col-span-6 lg:row-span-4 flex flex-col justify-between">
-      <img class="object-cover w-full h-full" src="https://arteco.vn/wp-content/uploads/2024/08/phong-khach-biet-thu-sang-trong0.webp" alt="">
-      <div class="time">21/08/2024</div>
-      <h5 class="text-base font-semibold">Chiêm ngưỡng 7 thiết kế mặt tiền nhà phố hướng Tây hiện đại, tối ưu năm 2024</h5>
-    </div>
-  
-    <div class="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col justify-between">
-      <img class="object-cover w-full h-full" src="https://arteco.vn/wp-content/uploads/2024/08/thiet-ke-mat-tien-nha-pho-huong-tay0.webp" alt="">
-      <div class="mt-4">
-        <div class="time">21/08/2024</div>
-        <h5 class="text-base font-semibold">Chiêm ngưỡng 7 thiết kế mặt tiền nhà phố hướng Tây hiện đại, tối ưu năm 2024</h5>
-      </div>
-    </div>
-  
-    <div class="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col justify-between">
-      <img class="object-cover w-full h-full" src="https://arteco.vn/wp-content/uploads/2024/08/nhung-dieu-kieng-ky-khi-dang-xay-nha0.webp" alt="">
-      <div class="mt-4">
-        <div class="time">22/08/2024</div>
-        <h5 class="text-base font-semibold ">Chiêm ngưỡng 7 thiết kế mặt tiền nhà phố hướng Tây hiện đại, tối ưu năm 2024</h5>
-      </div>
-    </div>
-  
-    <div class="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col justify-between">
-      <img class="object-cover w-full h-full" src="https://arteco.vn/wp-content/uploads/2024/08/le-cung-do-mong-nha-don-gian-nha0.png" alt="">
-      <div class="mt-4">
-        <div class="time">23/08/2024</div>
-        <h5 class="text-base font-semibold">Chiêm ngưỡng 7 thiết kế mặt tiền nhà phố hướng Tây hiện đại, tối ưu năm 2024</h5>
-      </div>
-    </div>
-  
-    <div class="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2 flex flex-col justify-between">
-      <img class="object-cover w-full h-full" src="https://arteco.vn/wp-content/uploads/2024/08/tuoi-tan-mui-lam-nha-nam-2024-thang-nao-tot0.webp" alt="">
-      <div class="mt-4">
-        <div class="time">24/08/2024</div>
-        <h5 class="text-base font-semibold">Chiêm ngưỡng 7 thiết kế mặt tiền nhà phố hướng Tây hiện đại, tối ưu năm 2024</h5>
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-center py-10">
-    <button class="px-8 py-3 uppercase bg-red-700 text-sm text-white font-medium hover:bg-red-800 hover:text-main border border-red-700 transition duration-450">
-      Tìm Hiểu Thêm
-    </button>
-  </div>
-</div>
-
