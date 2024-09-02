@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatIconModule, CommonModule, MatTabsModule, MatSidenavModule, MatListModule],
+  imports: [MatIconModule, CommonModule, MatTabsModule, MatSidenavModule, MatListModule, MatIcon],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -16,6 +16,8 @@ export class HomeComponent {
   selectedContent: string = 'tab1';
   previousContent: string = 'tab1';
   isContentVisible: number | null = null;
+  showArchi: number | null = null
+
 
   selectContent(tab: string) {
     this.previousContent = this.selectedContent;
@@ -43,6 +45,14 @@ export class HomeComponent {
       this.isContentVisible = null;
     } else {
       this.isContentVisible = index;
+    }
+  }
+
+  toggleArchi(index: number) {
+    if(this.showArchi === index){
+      this.showArchi =null ;
+    }else{
+      this.showArchi = index
     }
   }
 

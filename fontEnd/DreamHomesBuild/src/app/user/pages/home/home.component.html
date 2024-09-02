@@ -20,28 +20,60 @@
   <div class="architecture">
     <div class="lg:mx-32 mx-4 h-full py-20">
       <div class="uppercase text-main tracking-wider font-medium text-sm mb-10">Lĩnh vực hoạt động</div>
-      <div class="grid grid-cols-1 lg:grid-cols-9 justify-center items-center gap-2">
-        <div class="col-span-4 text-main mt-3 text-2xl font-medium tracking-wider text-justify lg:mr-36 mx-6 lg:mx-0">
-          <div class="grid grid-cols-5 gap-4">
-            <div class="col-span-4">
-              <p>Thiết kế kiến trúc và nội thất công trình dân dụng</p>
+      <div class="grid grid-cols-1 lg:grid-cols-9 justify-center items-center">
+        <div class="col-span-4 text-main mt-3 text-2xl font-medium tracking-wider lg:mr-36 mx-6 lg:mx-0">
+          <div class="relative top-0">
+            <img class="h-12 w-12 object-contain" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
+          </div>
+          <div class="grid grid-cols-5 gap-4 hover:cursor-pointer" (click)="toggleArchi(0)">    
+            <div class="col-span-4 flex flex-col justify-center">
+              <p class="text-justify" [ngClass]="{'text-red-500': showArchi === 0 }">
+                Thiết kế kiến trúc và nội thất công trình dân dụng
+              </p>
             </div>
-            <div class="col-span-1">
-              <mat-icon class="text-2xl">icon-angle-down</mat-icon>
+            <div class="col-span-1 flex items-center justify-center">
+              <mat-icon class="text-gray-800 hover:text-blue-500 cursor-pointer">menu</mat-icon>
             </div>
           </div>
-          <div class="grid grid-cols-5 gap-4 my-10 mt-10 border-t">
-            <div class="col-span-4">
-              <p>Thi công <br> xây dựng công trình</p>
+          <ul class="font-light text-sm transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2" 
+              [style.max-height]="showArchi === 0 ? '500px' : '0px'">
+            <li class="leading-relaxed">
+              Thiết kế mặt bằng công năng và phối cảnh 3D ngoại thất, nội thất.
+            </li>
+            <li class="leading-relaxed">
+              Triển khai chi tiết hồ sơ thiết kế thi công kiến trúc, kết cấu và điện nước hoàn thiện.
+            </li>
+          </ul>
+
+          <div class="border-t border-main border-opacity-50 my-10"></div>
+          <div class="flex items-start">
+            <img class="h-12 w-12 object-contain" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
+          </div>
+          <div class="grid grid-cols-5 gap-4 hover:cursor-pointer" (click)="toggleArchi(1)">
+            <div class="col-span-4 flex flex-col justify-center">
+              <p class="text-justify" [ngClass]="{'text-red-500': showArchi === 1 }">
+                Thi công <br> xây dựng công trình
+              </p>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1 flex items-center justify-center">
               <mat-icon class="text-2xl">keyboard_arrow_down</mat-icon>
             </div>
           </div>
+  
+          <ul class="font-light text-sm transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2" 
+              [style.max-height]="showArchi === 1 ? '500px' : '0px'">
+            <li class="leading-relaxed">
+              Thiết kế mặt bằng công năng và phối cảnh 3D ngoại thất, nội thất.
+            </li>
+            <li class="leading-relaxed">
+              Triển khai chi tiết hồ sơ thiết kế thi công kiến trúc, kết cấu và điện nước hoàn thiện.
+            </li>
+          </ul>
+          
         </div>
         <div class="col-span-5">
-          <div class="grid grid-cols-2 gap-8 ">
-            <div class="overflow-hidden group">
+          <div class="grid grid-cols-2 gap-8">
+            <div class="overflow-hidden group self-start">
               <img class="object-cover lg:h-[415px] w-full transition-transform duration-450 ease-in-out group-hover:scale-105 filter brightness-50 group-hover:brightness-100" src="https://arteco.vn/wp-content/uploads/2022/08/linh-vuc-arteco-2.jpg" alt="">
             </div>
             <div class="overflow-hidden group">
@@ -57,7 +89,7 @@
       </div>
     </div>
   </div>
-  
+ 
   <div class="grid grid-cols-1 lg:grid-cols-12 h-screen">
     <!-- Sidebar -->
     <div class="col-span-4 bg-[#195e5e] text-white flex flex-col">
@@ -82,7 +114,6 @@
                 <button class="lg:text-xl text-sm uppercase block">Thiết kế công trình</button>
               </div>
             </li>
-    
     
             <li (click)="selectContent('tab3')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab3'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
               <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
@@ -167,9 +198,9 @@
   
   <div class="min-h-[950px] bg-cover bg-center bg-[#182a53] text-main">
     <div class="lg:mx-32 mx-4 h-full py-20">
-      <div class="uppercase text-main tracking-wider font-normal text-lg mb-10">Điểm nổi bật của Artéco</div>
+      <div class="uppercase text-main tracking-wider font-normal text-[13px] lg:text-lg mb-10">Điểm nổi bật của Artéco</div>
       <div>
-        <p class="font-normal text-[21px] lg:text-[23px] tracking-wider text-white text-justify lg:w-[75%]">
+        <p class="font-light lg:font-normal text-[21px] lg:text-[23px] tracking-wider text-white text-justify lg:w-[75%]">
           Bằng trách nhiệm, tâm huyết cùng với sự am hiểu và sáng tạo, đội ngũ <strong class="text-[#0052c9]">Artéco</strong> đang thực hiện chức năng <strong class="text-[#ba3434]"> tiên phong</strong> trong lĩnh vực xây dựng. Chúng tôi tự tin đem đến không gian sống mang tiêu chuẩn Châu Âu, tiện nghi và giàu thẩm mỹ trên từng chi tiết.
         </p>
       </div>
@@ -185,7 +216,7 @@
                   Đối tác thi công số 1 <br> của các công ty thiết kế <br> hàng đầu Việt Nam
                 </div>
               </div>
-              <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 1, 'max-h-96': isContentVisible === 1}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
+              <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 1, 'max-h-96': isContentVisible === 1}" class="transition-all duration-300 ease-in-out text-sm font-light lg:font-normal mt-4 ml-28 text-justify lg:w-[55%]">
                 Chúng tôi chuyên thi công trọn gói và phụ trách giám sát chất lượng các công trình nhà cao tầng, biệt thự, penthouse, nhà hàng, khách sạn,… cho khách hàng.
               </div>
             </div>
@@ -194,11 +225,11 @@
               <div class="icon">
                 <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/ky-su-chuyen-mon-icon.png" alt="">
               </div>
-              <div [ngClass]="{'text-white': isContentVisible === 2}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(2)">
+              <div [ngClass]="{'text-white': isContentVisible === 2}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer text-[21px] lg:text-[24.5px]" (click)="toggleContent(2)">
                 Đội ngũ chuyên gia <br> giàu kinh nghiệm
               </div>
             </div>
-            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 2, 'max-h-96': isContentVisible === 2}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
+            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 2, 'max-h-96': isContentVisible === 2}" class="transition-all duration-300 ease-in-out text-sm font-light lg:font-normal mt-4 ml-28 text-justify lg:w-[55%]">
               Chúng tôi có đội ngũ kỹ sư và chuyên gia giàu kinh nghiệm, luôn đảm bảo chất lượng và tiến độ cho mọi dự án.
             </div>
           
@@ -206,11 +237,11 @@
               <div class="icon">
                 <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/ceo-icon.png" alt="">
               </div>
-              <div [ngClass]="{'text-white': isContentVisible === 3}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(3)">
+              <div [ngClass]="{'text-white': isContentVisible === 3}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer text-[21px] lg:text-[24.5px]" (click)="toggleContent(3)">
                 Đội ngũ Kỹ sư <br> chuyên môn cao
               </div>
             </div>
-            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 3, 'max-h-96': isContentVisible === 3}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
+            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 3, 'max-h-96': isContentVisible === 3}" class="transition-all duration-300 ease-in-out text-sm font-light lg:font-normal mt-4 ml-28 text-justify lg:w-[55%]">
               Các kỹ sư của chúng tôi có trình độ chuyên môn cao và luôn tuân thủ nghiêm ngặt các tiêu chuẩn chất lượng.
             </div>
           
@@ -218,11 +249,11 @@
               <div class="icon">
                 <img class="object-cover" width="70" height="70" src="https://arteco.vn/wp-content/uploads/2022/08/truong-ton-thoi-gian-icon.png" alt="">
               </div>
-              <div [ngClass]="{'text-white': isContentVisible === 4}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer" (click)="toggleContent(4)">
+              <div [ngClass]="{'text-white': isContentVisible === 4}" class="content ml-10 opacity-90 hover:opacity-100 hover:cursor-pointer text-[21px] lg:text-[24.5px]" (click)="toggleContent(4)">
                 Dịch vụ xây dựng <br> toàn diện và đồng bộ
               </div>
             </div>
-            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 4, 'max-h-96': isContentVisible === 4}" class="transition-all duration-300 ease-in-out text-sm font-normal mt-4 ml-28 text-justify lg:w-[55%]">
+            <div [ngClass]="{'max-h-0 overflow-hidden': isContentVisible !== 4, 'max-h-96': isContentVisible === 4}" class="transition-all duration-300 ease-in-out text-sm font-light lg:font-normal mt-4 ml-28 text-justify lg:w-[55%]">
               Chúng tôi cung cấp dịch vụ xây dựng toàn diện từ thiết kế đến thi công và quản lý chất lượng.
             </div>
           </div>        
@@ -302,7 +333,7 @@
   </section> -->
   
   <div class="tintuc min-h-[824px]  bg-[#182a53] text-main">
-    <div class="mx-[124px] h-full pt-20">
+    <div class="mx-5 lg:mx-[124px] h-full pt-20">
       <div class="uppercase text-main tracking-wider font-normal text-xs mb-10">Tin tức - Sự kiện</div>
     </div>
     

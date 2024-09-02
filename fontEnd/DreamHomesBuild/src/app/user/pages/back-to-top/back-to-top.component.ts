@@ -13,6 +13,7 @@ export class BackToTopComponent {
 
   ngOnInit(): void {
     this.checkScroll();
+      
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -21,7 +22,7 @@ export class BackToTopComponent {
   }
 
   private checkScroll(): void {
-    this.isVisible = window.pageYOffset > 300;
+    this.isVisible = window.scrollY > 300;
   }
 
   scrollToTop(): void {
