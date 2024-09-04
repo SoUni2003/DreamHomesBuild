@@ -18,24 +18,32 @@
   </div>
   
   <div class="architecture">
-    <div class="lg:mx-32 mx-4 h-full py-20">
-      <div class="uppercase text-main tracking-wider font-medium text-sm mb-10">Lĩnh vực hoạt động</div>
-      <div class="grid grid-cols-1 lg:grid-cols-9 justify-center items-center">
-        <div class="col-span-4 text-main mt-3 text-2xl font-medium tracking-wider lg:mr-36 mx-6 lg:mx-0">
-          <div class="relative top-0">
-            <img class="h-12 w-12 object-contain" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
-          </div>
-          <div class="grid grid-cols-5 gap-4 hover:cursor-pointer" (click)="toggleArchi(0)">    
-            <div class="col-span-4 flex flex-col justify-center">
-              <p class="text-justify" [ngClass]="{'text-red-500': showArchi === 0 }">
+    <div class="h-full py-20">
+      <div class="uppercase lg:mx-32 mx-4 text-main tracking-wider font-medium text-sm mb-10">Lĩnh vực hoạt động</div>
+      <div class="grid grid-cols-1 lg:grid-cols-9 justify-center">
+        <div class="col-span-4 text-main lg:mx-32 mx-4 text-2xl font-medium tracking-wider">
+          <div class="grid grid-cols-5 gap-4 cursor-pointer" (click)="toggleArchi(0)">
+            <div class="col-span-4 gap-4 pt-8 lg:pt-16">
+              <img *ngIf="showArchi === 0" class="h-12 relative w-12 object-contain -ml-12 -mt-4" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
+              <p class="text-justify leading-9" [ngClass]="{'text-[#182a53]': showArchi === 0 }">
                 Thiết kế kiến trúc và nội thất công trình dân dụng
               </p>
             </div>
-            <div class="col-span-1 flex items-center justify-center">
-              <mat-icon class="text-gray-800 hover:text-blue-500 cursor-pointer">menu</mat-icon>
+            <div class="col-span-1 flex justify-center items-center">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke-width="2.5" 
+                stroke="currentColor" 
+                class="size-8 transition-transform duration-300" 
+                [ngClass]="{'-rotate-180': showArchi === 0}">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>              
             </div>
           </div>
-          <ul class="font-light text-sm transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2" 
+  
+          <ul class="font-light text-sm text-textfoo tracking-wider lg:w-[90%] leading-6 transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2" 
               [style.max-height]="showArchi === 0 ? '500px' : '0px'">
             <li class="leading-relaxed">
               Thiết kế mặt bằng công năng và phối cảnh 3D ngoại thất, nội thất.
@@ -44,23 +52,31 @@
               Triển khai chi tiết hồ sơ thiết kế thi công kiến trúc, kết cấu và điện nước hoàn thiện.
             </li>
           </ul>
-
+  
           <div class="border-t border-main border-opacity-50 my-10"></div>
-          <div class="flex items-start">
-            <img class="h-12 w-12 object-contain" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
-          </div>
-          <div class="grid grid-cols-5 gap-4 hover:cursor-pointer" (click)="toggleArchi(1)">
+  
+          <div class="grid grid-cols-5 gap-4 cursor-pointer" (click)="toggleArchi(1)">
             <div class="col-span-4 flex flex-col justify-center">
-              <p class="text-justify" [ngClass]="{'text-red-500': showArchi === 1 }">
+              <img *ngIf="showArchi === 1" class="h-12 relative w-12 object-contain -ml-12 -mt-4" src="https://arteco.vn/wp-content/uploads/2022/08/arteco-pattern-2.svg" alt="">
+              <p class="text-justify leading-9" [ngClass]="{'text-[#182a53]': showArchi === 1 }">
                 Thi công <br> xây dựng công trình
               </p>
             </div>
             <div class="col-span-1 flex items-center justify-center">
-              <mat-icon class="text-2xl">keyboard_arrow_down</mat-icon>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke-width="2.5" 
+                stroke="currentColor" 
+                class="size-8 transition-transform duration-300" 
+                [ngClass]="{'-rotate-180': showArchi === 1}">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
             </div>
           </div>
   
-          <ul class="font-light text-sm transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2" 
+          <ul class="font-light text-sm text-textfoo tracking-wider lg:w-[90%] leading-6 transition-max-height duration-300 ease-in-out overflow-hidden list-disc pl-5 mt-4 space-y-2 mb-8 lg:mb-0 " 
               [style.max-height]="showArchi === 1 ? '500px' : '0px'">
             <li class="leading-relaxed">
               Thiết kế mặt bằng công năng và phối cảnh 3D ngoại thất, nội thất.
@@ -89,7 +105,7 @@
       </div>
     </div>
   </div>
- 
+  
   <div class="grid grid-cols-1 lg:grid-cols-12 h-screen">
     <!-- Sidebar -->
     <div class="col-span-4 bg-[#195e5e] text-white flex flex-col">

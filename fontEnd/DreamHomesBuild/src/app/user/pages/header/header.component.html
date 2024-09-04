@@ -3,14 +3,14 @@
   <div id="top-bar">
     <div class="flex justify-end gap-10 items-center pt-4">
       <ul class="flex items-center space-x-6 text-white justify-center mr-5">
-        <p class="text-white text-lg font-bold mr-12 leading-10">Hotline: 1900 277 287</p>
+        <p class="text-white text-sm mr-12 leading-10">Hotline: 1900 277 287</p>
         <li class="flex items-center">
           <img src="https://arteco.vn/wp-content/plugins/translatepress-multilingual/assets/images/flags/fr_FR.png" width="25" height="20" alt="French" title="Français">
-          <span class="ml-1 text-lg">FR</span>
+          <span class="ml-1">FR</span>
         </li>
         <li class="flex items-center">
           <img src="https://arteco.vn/wp-content/plugins/translatepress-multilingual/assets/images/flags/vi.png" width="25" height="20" alt="Vietnamese" title="Tiếng Việt">
-          <span class="ml-1 text-lg">VI</span>
+          <span class="ml-1">VI</span>
         </li>
       </ul>
     </div>
@@ -29,29 +29,31 @@
       </div>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex gap-6 border-y border-white w-full p-6 font-bold justify-between items-center text-white text-sm cursor-pointer">
+      <ul class="hidden md:flex gap-6 border-y border-white w-full p-6 justify-between items-center text-[#0a0a0a99] tracking-wider opacity-90 text-sm cursor-pointer">
         <img src="https://arteco.vn/wp-content/uploads/2022/08/arteco-logo.svg" alt="Arteco Logo" class="mr-36">
         <li routerLink="/trangchu" routerLinkActive><a class="hover:text-gray-450 ">Trang chủ</a></li>
         <li routerLink="/vechungtoi" routerLinkActive><a class="hover:text-gray-450">Về chúng tôi</a></li>
         <li><a class="hover:text-gray-450">Lĩnh vực</a></li>
         <li><a class="hover:text-gray-450">Dự án</a></li>
         <li class="relative dropdown hover:cursor-pointer">
-          <a class="flex items-center space-x-2 py-2 text-sm font-bold hover:text-gray-450">
+          <a class="flex items-center space-x-2 py-2 text-sm">
             <span>Tin tức</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </a>
-          <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-gray-100 text-gray-800 shadow-lg">
+          <div class="dropdown-menu absolute left-0 mt-2 w-56 bg-gray-100 shadow-lg">
             <a class="block px-4 py-2 hover:bg-gray-200">Tin nội bộ</a>
             <a class="block px-4 py-2 hover:bg-gray-200">Tin ngành</a>
           </div>
         </li>
         <li>
-          <mat-icon class="text-white text-2xl uppercase">search</mat-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>          
         </li>
         <li>
-          <a class="bg-transparent border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-black">Liên hệ</a>
+          <a class="bg-transparent border border-textfoo rounded-lg px-[46px] py-3 hover:bg-white hover:text-black">Liên hệ</a>
         </li>
       </ul>
 
