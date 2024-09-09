@@ -1,4 +1,4 @@
- .architecture,.main_clip{
+ .architecture, .main_clip, .outstanding{
     background-image: url('https://arteco.vn/wp-content/uploads/2022/08/arteco-concrete-bg-official-updated.jpg'); 
   }
   
@@ -11,4 +11,35 @@
   
   .middle{
     background-image: url('https://arteco.vn/wp-content/uploads/2022/08/bg-pattern-arteco.jpg');
+    background-position: bottom;
   }
+
+/* Thanh màu cam */
+.underline-border {
+  position: absolute;
+  bottom: -10px; /* Độ cao thanh dưới h4 */
+  left: 0;
+  height: 2px; /* Chiều cao thanh */
+  width: 100%; /* Ban đầu, thanh có độ rộng bằng toàn bộ màn hình */
+  background-color: #fa4d09; /* Màu cam */
+  transform: scaleX(0); /* Ẩn thanh ban đầu */
+  transform-origin: left; /* Thanh sẽ mở rộng từ bên trái */
+  transition: transform 0.5s ease; /* Hiệu ứng chuyển tiếp khi hover */
+}
+
+.group:hover .underline-border {
+  transform: scaleX(1); /* Khi hover, thanh mở rộng từ bên trái đến kích thước của h4 */
+}
+
+.text-center {
+  position: relative;
+}
+
+.group:hover .text-center h4 {
+  position: relative;
+}
+
+.group:hover .underline-border {
+  width: 100%; /* Thanh sẽ có độ rộng của thẻ h4 */
+}
+
