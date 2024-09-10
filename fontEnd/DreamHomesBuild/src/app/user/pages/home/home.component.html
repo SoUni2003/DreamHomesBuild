@@ -106,103 +106,97 @@
     </div>
   </div>
   
-  <div class="grid grid-cols-1 lg:grid-cols-12 h-screen">
+  <div class="grid grid-cols-1 lg:grid-cols-12 h-full">
     <!-- Sidebar -->
-    <div class="col-span-4 bg-[#195e5e] text-white flex flex-col">
-      <div class="font-semibold tracking-wider flex-grow">
+    <div class="lg:col-span-4 bg-[#195e5e] text-white">
+      <div class="font-semibold tracking-wider">
         <ul class="uppercase">
-          <li class="border-b border-r border-[#4f4f4f] border-opacity-80 flex items-center h-20 lg:h-26">
+          <li class="border-b border-r border-[#4f4f4f] border-opacity-80 flex items-center h-16 lg:h-24">
             <div class="ml-6 lg:ml-16">
               <button class="text-2xl uppercase block">Dịch vụ</button>
             </div>
           </li>
           <div class="grid lg:grid-cols-1 grid-cols-2">
             <li (click)="selectContent('tab1')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab1'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-              <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab1'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-1.png" height="50" width="35" alt="">
                 <button class="lg:text-xl text-sm uppercase block">Xây dựng nhà ở</button>
               </div>
             </li>
-    
             <li (click)="selectContent('tab2')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab2'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-              <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab2'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-2.png" height="50" width="35" alt="">
                 <button class="lg:text-xl text-sm uppercase block">Thiết kế công trình</button>
               </div>
             </li>
-    
             <li (click)="selectContent('tab3')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab3'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-              <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab3'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-3.png" height="50" width="35" alt="">
-                <button class="lg:text-xl text-sm uppercase block text-left">Xây dựng công nghiệp</button>
+                <button class="lg:text-xl text-sm uppercase block">Xây dựng công nghiệp</button>
               </div>
             </li>
-    
             <li (click)="selectContent('tab4')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab4'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-              <div class="lg:ml-16 ml-4 flex items-center h-[72px] lg:h-24 lg:gap-10 gap-4">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab4'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-4.png" height="50" width="35" alt="">
                 <button class="lg:text-xl text-sm uppercase block">Nội thất</button>
               </div>
             </li>
-    
-            <li (click)="selectContent('tab5')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab5'}" class="lg:border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
-              <div class="lg:ml-16 ml-4 flex items-center h-[60px] lg:h-24 lg:gap-10 gap-4">
+            <li (click)="selectContent('tab5')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab5'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab5'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-5.png" height="50" width="35" alt="">
                 <button class="lg:text-xl text-sm uppercase block">Sửa chữa cải tạo</button>
               </div>
             </li>
-    
-            <li (click)="selectContent('tab6')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab6'}" class="cursor-pointer border-[#4f4f4f] border-opacity-80">
-              <div class="lg:ml-16 ml-4 flex items-center h-[60px] lg:h-24 lg:gap-10 gap-4">
+            <li (click)="selectContent('tab6')" [ngClass]="{'bg-[#00a2a3]': selectedContent === 'tab6'}" class="border-b border-r border-[#4f4f4f] border-opacity-80 cursor-pointer">
+              <div class="lg:ml-16 ml-4 flex items-center h-16 lg:h-24 lg:gap-10 gap-4">
                 <img class="object-cover" [ngClass]="{'filter brightness-0 invert contrast-200': selectedContent === 'tab6'}" src="https://kienthietviet.com/wp-content/uploads/2020/02/services-icon-6.png" height="50" width="35" alt="">
                 <button class="lg:text-xl text-sm uppercase block">Dịch vụ khác</button>
               </div>
             </li>
           </div>
-         
         </ul>
       </div>
     </div>
   
     <!-- Content -->
-    <div class="col-span-8 relative">
-      <div class="grid grid-rows-1 h-full">
-        <div *ngIf="selectedContent === 'tab1'" class="w-full h-full relative">
+    <div class="lg:col-span-8 overflow-hidden">
+      <div class="relative w-full h-full">
+        <div *ngIf="selectedContent === 'tab1'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 1</h2>
           </div>
         </div>
   
-        <div *ngIf="selectedContent === 'tab2'" class="w-full h-full relative">
+        <div *ngIf="selectedContent === 'tab2'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 2</h2>
           </div>
         </div>
   
-        <div *ngIf="selectedContent === 'tab3'" class="w-full h-full relative">
+        <div *ngIf="selectedContent === 'tab3'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 3</h2>
           </div>
         </div>
   
-        <div *ngIf="selectedContent === 'tab4'" class="w-full h-full relative">
+        <div *ngIf="selectedContent === 'tab4'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 4</h2>
           </div>
         </div>
   
-        <div *ngIf="selectedContent === 'tab5'" class="w-full h-full relative">
+        <div *ngIf="selectedContent === 'tab5'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 5</h2>
           </div>
         </div>
   
-        <div *ngIf="selectedContent === 'tab6'" class="w-full h-full relative">
+        <div *ngIf="selectedContent === 'tab6'" [@slideAnimation]="getAnimationParams()" class="absolute inset-0 w-full h-full flex items-center justify-center">
           <img class="object-cover w-full h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
           <div class="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold">
             <h2>Content for Tab 6</h2>
@@ -211,6 +205,7 @@
       </div>
     </div>
   </div>
+  
   
   <div class="min-h-[950px] bg-cover bg-center bg-[#182a53] text-main">
     <div class="lg:mx-32 mx-4 h-full py-20">

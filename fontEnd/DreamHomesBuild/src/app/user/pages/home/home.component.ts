@@ -4,24 +4,57 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [MatIconModule, CommonModule, MatTabsModule, MatSidenavModule, MatListModule, MatIcon],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  animations: [
+    trigger('slideAnimation', [
+      state('void', style({ position: 'absolute', width: '100%' })),
+      transition(':enter', [
+        style({ transform: 'translateX({{enterTransform}})' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateX(0)' }))
+      ], { params: { enterTransform: '100%' } }),
+      transition(':leave', [
+        style({ transform: 'translateX(0)' }),
+        animate('0.5s ease-in-out', style({ transform: 'translateX({{leaveTransform}})' }))
+      ], { params: { leaveTransform: '-100%' } })
+    ])
+  ]
+  
+  
 })
 export class HomeComponent {
-  selectedContent: string = 'tab1';
-  previousContent: string = 'tab1';
   isContentVisible: number | null = null;
   showArchi: number | null = null
 
+  selectedContent: string = 'tab1';
+  previousContent: string = '';
 
   selectContent(tab: string) {
     this.previousContent = this.selectedContent;
     this.selectedContent = tab;
+  }
+
+  getAnimationParams() {
+    const isSwitchingRight = this.previousContent && (this.previousContent < this.selectedContent);
+    return {
+      value: this.selectedContent === this.previousContent ? 'enter' : 'leave',
+      params: {
+        enterTransform: isSwitchingRight ? '100%' : '-100%',
+        leaveTransform: isSwitchingRight ? '-100%' : '100%'
+      }
+    };
   }
 
   getTransform() {
