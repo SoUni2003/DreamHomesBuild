@@ -1,0 +1,41 @@
+<div class="container mx-auto p-4 pt-40">
+  <h2 class="text-2xl font-bold mb-4">Thước Lỗ Ban</h2>
+  
+  <div class="mb-4 flex items-center">
+    <input
+      type="number"
+      [(ngModel)]="rulerValue"
+      (ngModelChange)="onInputChange()"
+      class="border border-gray-300 rounded px-2 py-1 w-20 mr-2"
+    >
+    <span>mm (nhập số)</span>
+    <button class="ml-4 bg-blue-500 text-white px-4 py-1 rounded">Hãy kéo thước</button>
+  </div>
+
+  <div class="relative w-full overflow-hidden ruler-container" style="height: 400px;" #rulerContainer
+       (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()" (mouseleave)="onMouseLeave()">
+    <div class="absolute top-0 left-0 h-full ruler-wrapper" [style.transform]="'translateX(-' + rulerPosition + 'px)'">
+      <div *ngFor="let ruler of rulers" class="mb-8">
+        <div class="flex items-center mb-2">
+          <span class="font-bold mr-2">{{ruler.name}}:</span>
+          <span class="text-sm">{{ruler.description}}</span>
+        </div>
+        <div class="relative">
+          <img [src]="ruler.image" alt="Thước Lỗ Ban" class="ruler-image">
+          <div class="absolute top-full left-0 w-full flex text-xs">
+            <div *ngFor="let segment of ruler.segments" class="flex-1 text-center" [ngClass]="getSegmentClass(segment)">
+              {{segment.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute top-0 left-1/2 w-px h-full bg-yellow-400 z-10"></div>
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-xs px-1 py-0.5 rounded z-20">{{rulerValue}} mm</div>
+  </div>
+
+  <div class="mt-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+    <p class="font-bold">Thước Lỗ Ban 52.2cm: Khoảng không thông thủy (cửa, cửa sổ...)</p>
+    <p>Độ dài {{rulerValue}} mm thuộc Cung {{getCurrentSegment(rulers[0])}}.</p>
+  </div>
+</div>

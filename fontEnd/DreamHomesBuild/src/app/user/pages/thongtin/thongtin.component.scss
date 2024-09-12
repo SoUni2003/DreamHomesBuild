@@ -1,0 +1,28 @@
+.ruler-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+.ruler-image {
+  width: auto;
+  height: auto;
+  max-width: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.relative.w-full.overflow-x-auto {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.absolute.top-0.left-1\/2.transform.-translate-x-1\/2 {
+  z-index: 20;
+}
+
+.ruler-wrapper {
+  position: relative;
+  width: 5220px;
+  height: 150px;
+}

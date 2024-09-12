@@ -106,7 +106,7 @@
     </div>
   </div>
 
-  <div class="">
+  <div class="h-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12">
       <!-- Sidebar -->
       <div class="lg:col-span-4 col-span-1 bg-[#195e5e] text-white relative z-10">
@@ -162,53 +162,20 @@
       <!-- Content -->
       <div class="lg:col-span-8 col-span-1 relative z-0">
         <div class="h-full">
-          <div *ngIf="selectedContent === 'tab1'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 1</h2> -->
-            </div>
+          <div *ngFor="let tab of tabs; let i = index" 
+            [@slideAnimation]="getAnimationParams()" 
+            [style.display]="selectedContent === 'tab' + (i+1) ? 'block' : 'none'"
+            class="relative h-full">
+            <img class="object-cover w-full h-full" [src]="tab.imageUrl" alt="tab">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white p-8">
+            <h2 class="text-4xl font-bold mb-4">{{tab.title}}</h2>
+            <p class="text-xl text-center max-w-2xl">{{tab.description}}</p>
           </div>
-    
-          <div *ngIf="selectedContent === 'tab2'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 2</h2> -->
-            </div>
-          </div>
-    
-          <div *ngIf="selectedContent === 'tab3'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 3</h2> -->
-            </div>
-          </div>
-    
-          <div *ngIf="selectedContent === 'tab4'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 4</h2> -->
-            </div>
-          </div>
-    
-          <div *ngIf="selectedContent === 'tab5'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 5</h2> -->
-            </div>
-          </div>
-    
-          <div *ngIf="selectedContent === 'tab6'" [@slideAnimation]="getAnimationParams()" class="h-full flex items-center justify-center">
-            <img class="object-cover  h-full" src="https://kienthietviet.com/wp-content/uploads/2020/05/services-bg-1445x670-1.jpg" alt="">
-            <div class="flex items-center justify-center text-white text-4xl font-bold">
-              <!-- <h2>Content for Tab 6</h2> -->
-            </div>
-          </div>
+</div>
         </div>
       </div>
     </div>
   </div>
-  
-  
   
   
   <div class="min-h-[950px] bg-cover bg-center bg-[#182a53] text-main">
