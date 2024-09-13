@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, Subject } from 'rxjs';
+import { debounceTime, Subject, fromEvent, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-thongtin',
@@ -16,7 +16,7 @@ export class ThongtinComponent implements OnInit {
   rulerPosition = 0;
   isDragging = false;
   startX = 0;
-  lastDelta = 0;
+  private lastDelta = 0;
 
   rulers = [
     {
@@ -68,6 +68,14 @@ export class ThongtinComponent implements OnInit {
 
   ngOnInit() {
     this.updateRulerPosition(0);
+    fromEvent(this.rulerContainer.nativeElement, 'scroll')
+      .pipe(
+        debounceTime(200),
+        distinctUntilChanged()
+      )
+      .subscribe(() => {
+        this.updateVisibleRulers();
+      });
   }
 
   onMouseDown(event: MouseEvent): void {
@@ -116,6 +124,7 @@ export class ThongtinComponent implements OnInit {
     requestAnimationFrame(animate);
   }
 
+
   snapToNearestMM(): void {
     const nearestMM = Math.round(this.rulerPosition / 10) * 10;
     this.smoothScrollTo(nearestMM);
@@ -159,12 +168,19 @@ export class ThongtinComponent implements OnInit {
   }
 
   updateRulerImages(): void {
-    const rulerLength = 1000; // Reduced from 5220 to improve performance
     this.rulers.forEach(ruler => {
-      const newImage = `https://kaizenarchi.vn/wp-content/plugins/devvn-thuoc-lo-ban/includes/thuoc${ruler.name.slice(-5, -2)}.php?trimStart=${this.rulerValue}&rulerLength=${rulerLength}`;
-      if (ruler.image !== newImage) {
-        ruler.image = newImage;
-      }
+      ruler.image = "https://kaizenarchi.vn/wp-content/plugins/devvn-thuoc-lo-ban/includes/thuoc429.php?trimStart=2000&rulerLength=1000";
+    });
+
+    // Thêm kiểm tra lỗi khi tải hình ảnh
+    this.rulers.forEach(ruler => {
+      const img = new Image();
+      img.onerror = () => {
+        console.error(`Failed to load image: ${ruler.image}`);
+        // Xử lý lỗi ở đây, ví dụ: hiển thị hình ảnh placeholder
+        ruler.image = 'path/to/placeholder-image.jpg';
+      };
+      img.src = ruler.image;
     });
   }
 
@@ -182,5 +198,9 @@ export class ThongtinComponent implements OnInit {
 
   getSegmentClass(segment: any): string {
     return segment.isRed ? 'text-red-500' : 'text-green-500';
+  }
+
+  updateVisibleRulers() {
+    // Logic để xác định và cập nhật chỉ những thước đang hiển thị
   }
 }
